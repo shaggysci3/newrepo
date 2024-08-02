@@ -99,9 +99,9 @@
   background: linear-gradient( #242424,white); /* Gradient from white to #242424 */
   border-radius: 10px; /* Same border radius as the card */
 }
-.title{
+/* .title{
   
-}
+} */
 .bannerImg{
   width: -webkit-fill-available;
 }
