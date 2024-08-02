@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
+  
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 
@@ -39,4 +39,69 @@
 
 .read-the-docs {
   color: #888;
+}
+.navbar{
+  width: 940px;
+  padding-inline: 200px;
+  display: flex;
+  background-color: #1a1a1a;
+  box-shadow: 1px 10px 40px -3px black;
+  position: relative;
+  justify-content: space-between;
+}
+.navItem{
+  margin-inline:20px ;
+}
+.navItem:hover{
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+.navRight{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.cardContainer{
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-evenly;
+}
+.card {
+  position: relative; /* Ensure the pseudo-element is positioned correctly */
+  border-radius: 10px;
+  height: 170px;
+  min-width: 150px;
+  border: 2px solid transparent; /* Use transparent border to show the gradient */
+  background-clip: padding-box; /* Ensure the border gradient doesn't overlap the content */
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  
+}
+.cardImg{
+  max-block-size: 140px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px; 
+  left: -2px; 
+  right: -2px; 
+  bottom: -2px; 
+  z-index: -1; /* Place the pseudo-element behind the card content */
+  background: linear-gradient( #242424,white); /* Gradient from white to #242424 */
+  border-radius: 10px; /* Same border radius as the card */
+}
+.title{
+  
+}
+.bannerImg{
+  width: -webkit-fill-available;
 }
