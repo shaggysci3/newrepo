@@ -21,6 +21,16 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 # Views go here!
+class AllUsers(Resource):
+    
+    def get(self):
+        users = User.query.all()
+        # for user in users:
+        #     print(user.__dict__)  # Print user attributes to debug
+        response_body = [user.to_dict(rules=()) for user in users]
+        return make_response(jsonify(response_body), 200)
+
+api.add_resource(AllUsers,'/users')
 
 
 
