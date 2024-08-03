@@ -95,9 +95,9 @@
   left: -2px; 
   right: -2px; 
   bottom: -2px; 
-  z-index: -1; /* Place the pseudo-element behind the card content */
-  background: linear-gradient( #242424,white); /* Gradient from white to #242424 */
-  border-radius: 10px; /* Same border radius as the card */
+  z-index: -1;
+  background: linear-gradient( #242424,white);
+  border-radius: 10px;
 }
 /* .title{
   
