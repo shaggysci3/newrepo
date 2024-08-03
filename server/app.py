@@ -30,6 +30,16 @@ class AllUsers(Resource):
         response_body = [user.to_dict(rules=()) for user in users]
         return make_response(jsonify(response_body), 200)
 
+api.add_resource(AllUsers, '/api/users', endpoint='users')
+class AllUsers(Resource):
+    
+    def get(self):
+        users = User.query.all()
+        # for user in users:
+        #     print(user.__dict__)  # Print user attributes to debug
+        response_body = [user.to_dict(rules=()) for user in users]
+        return make_response(jsonify(response_body), 200)
+
 api.add_resource(AllUsers,'/users')
 
 
@@ -40,7 +50,7 @@ api.add_resource(AllUsers,'/users')
 @app.route('/<path:path>')
 def catch_all(path):
     # combines python and js for monoRepo it is a python web app
-    # so in this case pyhon falcititates the js program so its a python program running js not just a js program 
+    # so in this case pyhon falcititates the js program so its a python program running js not just a js program
     return render_template("index.html")
 
 if __name__ == '__main__':
