@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(`${server}/api/users`);
+      const response = await fetch(`${server}/users`);
       const ShowArr = await response.json();
       setAllShows(ShowArr);
     };
