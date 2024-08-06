@@ -1,41 +1,44 @@
+html, body{
+  width: 100%;
+}
 #root {
-  
-  margin: 0 auto;
+  width: 100%;
+  /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
 }
 
 /* index.css no importing some reason putting it here for now  */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 a {
-  font-weight: 500;
+  /* font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: inherit; */
 }
 a:hover {
-  color: #535bf2;
+  /* color: #535bf2; */
 }
 
 body {
-  margin: 0;
+  margin: unset;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  /* place-items: center; */
+ 
 }
 
 h1 {
@@ -43,86 +46,72 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
 /*  end of index.css */
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.siteContainer{
+  width: 100%;
+
 }
+
 .navbar{
-  width: 940px;
-  padding-inline: 200px;
+  /* width: 100%; */
+  padding-inline: 30px;
   display: flex;
-  background-color: #1a1a1a;
-  box-shadow: 1px 10px 40px -3px black;
+  background-color: #ffffff;
+  box-shadow: 1px 10px 40px -3px rgb(0, 0, 0);
   position: relative;
   justify-content: space-between;
+  height: 100px;
+}
+.navIcon{
+  width: 110px;
+  height: 110px;
+  block-size: 110px;
+  position: relative;
+  top: -10px;
+  left: -3px;
+}
+.cartIcon{
+  margin-inline-start: 10px;
+  border-radius: 5px;
+  block-size: 30px;
+  background-color: #D1788F ;
+}
+.accountIcon{
+  block-size: 30px;
+}
+.iconContainer{
+  margin-right: 10px;
+  /* box-shadow: 5px 10px 8px 2px rgba(0, 0, 0, 0.5); */
+  border: 2px #201f41 solid;
+  border-radius: 100%;
+  overflow: hidden;
+  height: 85px;
+  width: 88px;
+
+}
+.navTitle{
+  font-family: 'Playmaker', sans-serif;
+  color: #201f41;
+  font-size: 50pt;
+  letter-spacing: 5px;
+                                                
 }
 .navItem{
-  margin-inline:20px ;
+  /* border-right: 2px,solid,#04040c; */
+  padding-inline-end:20px ;
+  border-right: 2px solid rgba(17, 17, 17, 0.2);
+  font-family: 'Playmaker', sans-serif;
+  letter-spacing: 3px;
+}
+.accountDiv{
+  display: flex;
+  align-items: center;
+
 }
 .navItem:hover{
   cursor: pointer;
@@ -132,45 +121,69 @@ button:focus-visible {
 .navRight{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 
 }
 .cardContainer{
+  padding-top: 70px;
   display: flex;
   column-gap: 10px;
   justify-content: space-evenly;
 }
+
+
 .card {
-  position: relative; /* Ensure the pseudo-element is positioned correctly */
-  border-radius: 10px;
-  height: 170px;
-  min-width: 150px;
-  border: 2px solid transparent; /* Use transparent border to show the gradient */
-  background-clip: padding-box; /* Ensure the border gradient doesn't overlap the content */
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  unicode-bidi: isolate;
+  position: relative;
+  border-radius: 20px;
+  height: 200px;
+  width: 200px;
+  border: 10px solid pink;
+  background-color: white;
+  overflow: hidden;
+  transition: 200ms;
+}
+.card:hover{
+  cursor: pointer;
+  border: 10px solid white;
+  transform: translate3d(10px, -10px, 10px);
+  transition: 200ms;
+  box-shadow: 5px 10px 8px 2px rgba(0, 0, 0, 0.5);
+  .cardImg{
+    /* filter: blur(1px); */
+    filter: brightness(35%);
+    transition: 200ms;
+
+  }
+  .clothing{
+    position: relative;
+    z-index: 10;
+    margin: unset;
+    opacity: 100%;
+    color: white;
+    font-family: 'Playmaker', sans-serif;
+    font-size: 30pt;
+    height: 10px;
+  }
+}
+.clothing{
+  opacity: 0%;
+  position: relative;
+  margin: unset;
+  z-index: 10;
+  font-size: 30pt;
+  height: 10px;
+  top: 65px;
+  letter-spacing: 18px;
   
 }
 .cardImg{
-  max-block-size: 140px;
+  block-size: 300px;
+  position: relative;
+  top:-64px;
+  left: -40px;
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  top: -2px; 
-  left: -2px; 
-  right: -2px; 
-  bottom: -2px; 
-  z-index: -1;
-  background: linear-gradient( #242424,white);
-  border-radius: 10px;
-}
+
 /* .title{
   
 } */
