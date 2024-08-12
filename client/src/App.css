@@ -10,6 +10,12 @@ html, body{
 
 /* index.css no importing some reason putting it here for now  */
 :root {
+  --pink-50: #fce4ec;
+  --pink-100: #f8bbd0;
+  --pink-200: #f48fb1;
+  --pink-300: #f06292;
+  --pink-400: #ec407a;
+  --pink-700: #c2185b;
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -62,10 +68,21 @@ h1 {
   padding-inline: 30px;
   display: flex;
   background-color: #ffffff;
-  box-shadow: 1px 10px 40px -3px rgb(0, 0, 0);
+  /* box-shadow: 1px 10px 40px -3px rgb(0, 0, 0); */
   position: relative;
   justify-content: space-between;
   height: 100px;
+}
+.underBar{
+  padding-inline: 30px;
+  display: flex;
+  background-color: #ffffff;
+  position: relative;
+  justify-content: center;
+  height: 75px;
+  border-top: 1px solid rgba(17, 17, 17, 0.2);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+
 }
 .navIcon{
   width: 110px;
@@ -79,7 +96,7 @@ h1 {
   margin-inline-start: 10px;
   border-radius: 5px;
   block-size: 30px;
-  background-color: #D1788F ;
+  background-color: var(--pink-300) ;
 }
 .accountIcon{
   block-size: 30px;
@@ -99,7 +116,7 @@ h1 {
   color: #201f41;
   font-size: 50pt;
   letter-spacing: 5px;
-                                                
+
 }
 .navItem{
   /* border-right: 2px,solid,#04040c; */
@@ -107,22 +124,47 @@ h1 {
   border-right: 2px solid rgba(17, 17, 17, 0.2);
   font-family: 'Playmaker', sans-serif;
   letter-spacing: 3px;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-decoration:unset;
+  color: unset;
+}
+.underItem{
+  /* border-right: 2px,solid,#04040c; */
+  padding-inline:20px ;
+  /* border-right: 2px solid rgba(17, 17, 17, 0.2); */
+  font-family: 'Playmaker', sans-serif;
+  letter-spacing: 3px;
+  display: block;
+  font-size: 1.7em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-decoration:unset;
+  color: unset;
+}
+.underItem:hover{
+  cursor: pointer;
 }
 .accountDiv{
   display: flex;
   align-items: center;
-
 }
 .navItem:hover{
   cursor: pointer;
   text-decoration: underline;
-
 }
 .navRight{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
 .cardContainer{
   padding-top: 70px;
@@ -189,4 +231,116 @@ h1 {
 } */
 .bannerImg{
   width: -webkit-fill-available;
+}
+.accountPage{
+  padding-block-start: 47px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.accountLeft{
+  padding-inline-end: 20px;
+  border-right: 2px solid rgba(17, 17, 17, 0.2);
+  
+
+}
+.accountRight{
+
+}
+
+
+
+/* bread crumbs css sheet maybe use this maybe not ? */
+
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  background: var(--pink-50);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px var(--pink-50);
+  padding-inline-start: 0;
+  width: fit-content;
+}
+
+.breadcrumbs-item {
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  background: var(--pink-100);
+  color: var(--pink-700);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+.breadcrumbs-arrow{
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  background: var(--pink-100);
+  color: var(--pink-700);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.breadcrumbs-arrow::after,
+.breadcrumbs-arrow::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 12px;
+  top: 0px;
+  left: -1px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.breadcrumbs-arrow::before {
+  background: var(--pink-50);
+}
+
+.breadcrumbs-arrow::after {
+  left: 99%;
+  background: var(--pink-100);
+}
+
+.breadcrumbs-item::before,
+.breadcrumbs-item::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 12px;
+  top: 0px;
+  left: -1px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.breadcrumbs-item::before {
+  background: var(--pink-50);
+}
+
+.breadcrumbs-item::after {
+  left: 99%;
+  background: var(--pink-100);
+}
+
+.breadcrumbs-item:first-child {
+  padding: 0.75rem;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.breadcrumbs-item:first-child::before {
+  display: none;
+}
+
+.breadcrumbs-item:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.breadcrumbs-item:last-child::after {
+  display: none;
+}
+
+.breadcrumbs-item:hover,
+.breadcrumbs-item:hover::after {
+  background: var(--pink-400);
+  color: var(--pink-100);
 }

@@ -65,9 +65,9 @@ const Login = () => {
   return (
     <>
       <div className='pageContainer'>
-        <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
+        <div id='mydiv' style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
           {logged ? (<h1>you are logged in {userData.name}</h1>) : (<><div>
-            <Card style={{ display: 'flex' }}>
+            <div id='card' style={{ display: 'flex' }}>
               <Form style={{ alignItems: "center" }} className='form' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                   <Form.Label>User Name</Form.Label>
@@ -79,7 +79,7 @@ const Login = () => {
                 </Form.Group>
                 <Button type='submit'>submit</Button>
               </Form>
-            </Card>
+            </div>
           </div></>)}
           {loading ? <>
             <img src='https://media1.giphy.com/media/ZBQhoZC0nqknSviPqT/giphy.webp?cid=790b76113a8mnmiu77055p86djrbg9zs0uwf8hxud4njltx5&ep=v1_gifs_search&rid=giphy.webp&ct=g'></img>
