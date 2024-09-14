@@ -1,8 +1,9 @@
-from models import db, User
+from models import db, User,Products,Cart
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
 from flask import Flask, make_response, jsonify, request,render_template
 import os
+import ipdb;
 
 
 
@@ -30,7 +31,7 @@ class Login(Resource):
     user = User.query.filter(User.username == username).first()
     if user:
       if user.authenticate(password):
-          return make_response(user.to_dict(rules=()), 200)
+          return make_response(user.to_dict(rules=('-carts',)), 200)
       return {'error': "Unauthorized"}, 401
     return {'error': "User Not Found"}, 404 
   
@@ -42,9 +43,8 @@ class AllUsers(Resource):
     
     def get(self):
         users = User.query.all()
-        # for user in users:
-        #     print(user.__dict__)  # Print user attributes to debug
-        response_body = [user.to_dict(rules=()) for user in users]
+        # ipdb.set_trace()
+        response_body = [user.to_dict(rules=('-carts',)) for user in users]
         return make_response(jsonify(response_body), 200)
     
     def post(self):
@@ -140,6 +140,87 @@ class UserById(Resource):
             return make_response(response_body, 404)
 
 api.add_resource(UserById,'/api/users/<int:id>')
+
+class AllProducts(Resource):
+
+    def get(self):
+        response_body = [product.to_dict() for product in Products.query.all()]
+        return make_response(response_body,200)
+    def post(self):
+        try:
+            
+            # Ensure required fields are present in the request
+            # id = request.json.get('id')
+            img = request.json.get('img')
+            name = request.json.get('name')
+            price = request.json.get('price')
+            info = request.json.get('info')
+            type = request.json.get('type')
+            amount = request.json.get('amount')
+            
+
+            if not all([img ,name,price , info,type,amount]):
+                raise ValueError("Missing required fields")
+
+            new_p = Products(
+                
+                img=img,
+                name=name,
+                price=price,
+                info=info,
+                type=type,
+                amount=amount,
+            )
+            db.session.add(new_p)
+            db.session.commit()
+
+            # Assuming to_dict() method is defined in your Mission model
+            rb = new_p.to_dict(rules = ())
+            return make_response(rb, 201)
+
+        except ValueError:
+            rb = {
+                "errors": ["validation errors"]
+                }
+            return make_response(rb, 400)
+
+api.add_resource(AllProducts, '/api/products')
+
+class AllCarts(Resource):
+
+    def get(self):
+        response_body = [product.to_dict(rules = ('-user','-products.cart_products')) for product in Cart.query.all()]
+        return make_response(response_body,200)
+    def post(self):
+        try:
+            
+            # Ensure required fields are present in the request
+            # id = request.json.get('id')
+            user_id = request.json.get('user_id')
+            
+            
+
+            if not all([user_id ,]):
+                raise ValueError("Missing required fields")
+
+            new_c = Cart(
+                user_id=user_id,
+
+            )
+            db.session.add(new_c)
+            db.session.commit()
+
+            # Assuming to_dict() method is defined in your Mission model
+            rb = new_c.to_dict(rules = ('-users.carts','-cart_products'))
+            return make_response(rb, 201)
+
+        except ValueError:
+            rb = {
+                "errors": ["validation errors"]
+                }
+            return make_response(rb, 400)
+
+api.add_resource(AllCarts, '/api/carts')
 
 
 

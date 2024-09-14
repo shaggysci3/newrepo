@@ -60,6 +60,8 @@ h1 {
 
 .siteContainer{
   width: 100%;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -116,6 +118,7 @@ h1 {
   color: #201f41;
   font-size: 50pt;
   letter-spacing: 5px;
+  border-radius: 10px 10px 0 0;
 
 }
 .navItem{
@@ -343,4 +346,65 @@ h1 {
 .breadcrumbs-item:hover::after {
   background: var(--pink-400);
   color: var(--pink-100);
+}
+
+.loginSignup{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addUserForm{
+  display: flex;
+  flex-direction: column;
+  padding-inline: 40px;
+  align-items: center;
+  background-color: #f48fb1;
+  border-radius: 0px 0px 10px 10px;
+  .formItem{
+    padding: 10px;
+    font-family: 'Playmaker', sans-serif;
+    font-size: 20pt;
+    .userInput{
+      border-radius: 5px;
+      font-size: 14pt;
+      border: none;
+      /* border-bottom: 2px solid var(--pink-200); */
+      background-color: var(--pink-50);
+    }
+    .userInput:focus{
+      transition: 500ms;
+      outline-color: var(--pink-400);
+      /* outline-style: dotted; */
+      background-color: var(--pink-100) ;
+    }
+  }
+}
+.pageContainer{
+  padding-inline: 10px;
+}
+.loginButton{
+  padding: 4px;
+  border-radius: 5px;
+  border: solid 2px black;
+  width: fit-content;
+}
+.loginButton:hover{
+  border-color: var(--pink-200);
+  background-color: var(--pink-50);
+}
+
+.gridContainer{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+.Item{
+  margin: 10px;
+  block-size: 300px;
+  font-size: 7pt;
+  .itemImg{
+    block-size: 200px;
+  }
+
 }

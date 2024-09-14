@@ -16,13 +16,31 @@ import Home from './routes/Home'
 import Login from './routes/login'
 import Account from './routes/Account'
 import Filters from './components/Filters'
+import Game from './routes/Game'
+import Signup from './components/AddProduct'
+import AddProduct from './components/AddProduct'
+import Cart from './routes/Cart'
+import AllItems from './routes/AllItems'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const[allShows,setAllShows]=useState([])
+  
   const server = import.meta.env.VITE_URL
   const[userData,setUserData]=useState([])
-  const location = useLocation();
+  const[allItems,setAllItems]=useState([])
+
+     
+    useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(`${server}/api/products`);
+      const ItemArr = await response.json();
+      setAllItems(ItemArr);
+    };
+    fetchProducts().catch(console.error);
+  }, []);
+  // console.log(allItems)
+
+
+
   
 
   
@@ -52,7 +70,7 @@ function App() {
         
       <Navbar userData={userData}/>
       <Filters/>
-      <Outlet context={[userData,setUserData]}/>
+      <Outlet context={[userData,setUserData,allItems]}/>
       <Footer/>
       
       
@@ -80,6 +98,18 @@ const router = createBrowserRouter([
       {
         path:"/account",
         element:<Account/>
+      },
+      {
+        path:"/game",
+        element:<Game/>
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+      },
+      {
+        path:"/all",
+        element:<AllItems/>
       }
       
     ]

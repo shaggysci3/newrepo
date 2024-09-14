@@ -1,9 +1,12 @@
-import { useLocation } from "react-router-dom"
+import { useLocation,useNavigate, } from "react-router-dom"
 
 
 const Filters = () =>{
-  
+  const navigate = useNavigate()
 
+  function handleClick(){
+    navigate('/')
+  }
     return(
       <>
       {location.pathname ==="/"?<>
@@ -11,7 +14,7 @@ const Filters = () =>{
       </>:<>
       <ul class="breadcrumbs">
         <div></div>
-        <a href="/" class="breadcrumbs-item">
+        <a onClick={handleClick} class="breadcrumbs-item">
           <li>Home</li>
         </a>
         

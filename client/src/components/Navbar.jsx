@@ -8,7 +8,7 @@ const Navbar = ({userData}) =>{
 
   useEffect(() => {
     console.log('Component rendered or count changed');
-    console.log(userData.length)
+    // console.log(userData.length)
     if(userData.length === 0){
       setLogin("/login")
     }else{
@@ -34,12 +34,14 @@ const Navbar = ({userData}) =>{
             <img className="accountIcon" src="https://img.icons8.com/?size=100&id=84898&format=png&color=1A1A1A"></img>
             <Link to={login} className="navItem" >{userData.length === 0?'Login':`Account`}</Link>
             </div>
-            <img className="cartIcon" src="https://img.icons8.com/?size=100&id=85080&format=png&color=FFFFFF"></img>
+            <Link to={'/cart'}>
+              <img className="cartIcon" src="https://img.icons8.com/?size=100&id=85080&format=png&color=FFFFFF"></img>
+            </Link>
           </div>
         </div>
         <div className='underBar'>
           
-           <h2 className='underItem'>Gem</h2>
+           <Link to={'/all'} className='underItem'>Gem</Link>
            <h2 className='underItem'>Resin Planar</h2>
            <h2 className='underItem'>Mini Planar</h2>
           

@@ -1,16 +1,24 @@
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext,useNavigate } from 'react-router-dom'
 import AccDisplay from '../components/AccDisplay';
+import AddProduct from '../components/AddProduct';
 
 
 const Account = () =>{
     const [userData, setUserData] = useOutletContext();
+    const navigate = useNavigate()
 
+    function handleClick(){
+      navigate('/login')
+    }
  
    
 
     return(
       <>
-      <h1>Welcome {userData.name}</h1>
+      
+      {userData.name?<>
+      <AddProduct/>
+      <h1>Welcome {userData.name?userData.name:""}</h1>
       <div className='accountPage'>
         <div className='accountLeft'>
             <ul>
@@ -23,6 +31,9 @@ const Account = () =>{
             <AccDisplay/>
         </div>
       </div>
+      </>:<>
+      <h1>Please <a style={{color:"blue",textDecoration:"underline",cursor:"pointer"}} onClick={handleClick} >Login</a> to access account</h1>
+      </>}
         
       </>
     )

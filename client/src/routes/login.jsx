@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, useNavigate, Navigate } from 'react-router-dom'
+import Signup from '../components/SIgnup';
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [logged, setLogged] = useState(false);
   const server = import.meta.env.VITE_URL;
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Login = () => {
     };
     console.log(newUser);
     try {
-      const response = await fetch(`${server}/login`, {
+      const response = await fetch(`${server}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,6 +49,7 @@ const Login = () => {
         username: "",
         password: "",
       });
+      navigate('/account')
 
     } catch (error) {
       console.error("Error adding user:", error);
@@ -64,7 +67,10 @@ const Login = () => {
 
   return (
     <>
+    <div className='loginSignup'>
+
       <div className='pageContainer'>
+      <h1 className='navTitle' >Login</h1>
         <div id='mydiv' style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
           {logged ? (<h1>you are logged in {userData.name}</h1>) : (<><div>
             <div id='card' style={{ display: 'flex' }}>
@@ -77,7 +83,7 @@ const Login = () => {
                   <Form.Label>Password</Form.Label>
                   <Form.Control onChange={handleChange} type="password" placeholder="Password" value={userInfo.password} name='password' />
                 </Form.Group>
-                <Button type='submit'>submit</Button>
+                <Button style={{marginTop:"10px"}} className='loginButton' type='submit'>submit</Button>
               </Form>
             </div>
           </div></>)}
@@ -86,6 +92,8 @@ const Login = () => {
           </> : <></>}
         </div>
       </div>
+    <Signup/>
+    </div>
     </>
   );
 }

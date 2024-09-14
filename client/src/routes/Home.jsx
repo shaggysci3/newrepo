@@ -1,4 +1,5 @@
 import CatCard from "../components/CatCard"
+import Upload from "../components/Upload"
 
 
 const Home = () =>{
@@ -20,6 +21,10 @@ const Home = () =>{
             <CatCard name={"Resin Planar"} img={'Screenshot%202024-08-05%20223720.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzaG9wL1NjcmVlbnNob3QgMjAyNC0wOC0wNSAyMjM3MjAucG5nIiwiaWF0IjoxNzIzNDgxMjU0LCJleHAiOjE3NTUwMTcyNTR9.cELz21JtxCg8FY2x2rdoBKXD3Uf_1C_aFyLt7Iu5iE4&t=2024-08-12T16%3A47%3A34.408Z'}/>
             
             <CatCard name={"Mini Planar"} img={'Screenshot%202024-08-05%20223705.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzaG9wL1NjcmVlbnNob3QgMjAyNC0wOC0wNSAyMjM3MDUucG5nIiwiaWF0IjoxNzIzNDgwNjQ0LCJleHAiOjE3NTUwMTY2NDR9.5zYMyaqO6H3aOpye7ZETLgOhpr1mP8t4_aGCh5Qwrqc&t=2024-08-12T16%3A37%3A24.620Z'}/>
+          </div>
+
+          <div>
+            <Upload/>
           </div>
         </div>
       </>

@@ -1,0 +1,144 @@
+.gameContainer{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+.gameDisplay{
+    height: 400px;
+    width: 1200px;
+    max-width: 1200px;
+    margin-inline: 50px;
+    /* background-color: rgb(247, 126, 126); */
+    /* border-bottom: solid black 20px; */
+}
+.gameDeli{
+    height: 200px;
+    width: 1200px;
+    max-width: 1200px;
+    margin-inline: 50px;
+    /* background-color: rgb(126, 247, 162); */
+}
+
+.gameIgredients{
+    display: flex;
+    flex-direction: row;
+    height: 68px;
+    width: 1100px;
+    align-items: center;
+    margin-inline: 89px;
+    position: relative;
+    top: 252px;
+}
+button{
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+
+}
+.gameButton{
+    background-color: rgb(132, 202, 132);
+    border-radius: 8px;
+    padding: 10px;
+    /* border-color: rgba(0, 0, 0, 0); */
+    border: 3px solid rgba(132,202, 132, 0);
+    margin-inline: 10px;
+}
+.gameButton:hover{
+    background-color: rgba(118, 182, 118, 0.795);
+}
+.gameButton:active{
+    background-color:rgb(53, 148, 53) ;
+
+}
+
+.gameButtonCreate{
+    background-color: rgb(132, 174, 202);
+    border-radius: 8px;
+    padding: 10px;
+    /* border-color: rgba(0, 0, 0, 0); */
+    border: 3px solid rgba(132,202, 132, 0);
+    margin-inline: 10px;
+}
+
+.gameCounter{
+    height: 400px;
+    position: absolute;
+    width: 1263px;
+    /* top: -649px;
+    left: 50px; */
+}
+.gameSammyDisplay{
+    height: 50px;
+    
+    
+}
+.sammyDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sammy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bread{
+    background-color: rgb(250, 174, 60);
+    height: 10px;
+    width: 60px;
+}
+.american{
+    background-color: rgb(238, 225, 109);
+    height: 10px;
+    width: 50px;
+
+}
+.cheddar{
+    background-color: rgb(223, 216, 155);
+    height: 10px;
+    width: 50px;
+
+}
+.swiss{
+    background-color: rgb(224, 206, 35);
+    height: 10px;
+    width: 50px;
+
+}
+.tomato{
+    background-color: rgb(231, 72, 72);
+    height: 10px;
+    width: 50px;
+    
+}
+.chicken{
+    background-color: rgb(173, 103, 11);
+    height: 10px;
+    width: 50px;
+
+}
+@keyframes enter{
+    0%{transform: translate(0px,0px,);}
+    50%{transform: translate(12px,0px);}
+    100%{transform: translate(12px,12px);}
+}
+.animate{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background-color: red;
+    /* animation-name: enter;
+    animation-duration: 4s; */
+}
+.move{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background-color: red;
+    transition: 500ms;
+    transform: translate(30px,30px)
+}
